@@ -58,5 +58,30 @@
         android:onClick="onControlClick"
         android:text="Square"/>
 
+    <Button
+
+        android:id="@+id/circle_button"
+        style="@style/ControlButton"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/two_seventy_button"
+        android:onClick="onControlClick"
+        android:text="Circle"/>
+
+    <Button
+        android:id="@+id/pathing"
+        style="@style/ControlButton"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/button"
+        android:onClick="onControlClick"
+        android:text="Path" />
+
+    <Button
+        android:id="@+id/triangle"
+        style="@style/ControlButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="onControlClick"
+        android:text="Triangle" />
+
 </RelativeLayout>
 <!-- From: file:/C:/Users/Jose/AndroidStudioProjects/ButtonDrive/app/src/main/res/layout/main.xml -->
