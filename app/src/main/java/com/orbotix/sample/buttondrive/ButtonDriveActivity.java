@@ -163,7 +163,7 @@ public class ButtonDriveActivity extends Activity {
         for (int i = 0; i < angles.length; i++) {
             mRobot.drive(angles[i], 1f);
             mRobot.stop();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         }
     }
 
@@ -178,7 +178,12 @@ public class ButtonDriveActivity extends Activity {
         for (float i = 0f; i <= 360f; i += 10) {
             mRobot.drive(i, 1f);
             mRobot.setColor((int) i, (int) i, (int) i);
-            Thread.sleep(100);
+            Thread.sleep(50);
+        }
+        for (float i = 0f; i <= 360f; i += 10) {
+            mRobot.drive(i, 1f);
+            mRobot.setColor((int) i, (int) i, (int) i);
+            Thread.sleep(50);
         }
 
         mRobot.stop();
