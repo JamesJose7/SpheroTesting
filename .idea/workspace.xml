@@ -59,9 +59,12 @@
       <file leaf-file-name="ButtonDriveActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/orbotix/sample/buttondrive/ButtonDriveActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.2504473" vertical-offset="1906" max-vertical-offset="3944">
-              <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
-              <folding />
+            <state vertical-scroll-proportion="3.493739" vertical-offset="325" max-vertical-offset="3468">
+              <caret line="148" column="28" selection-start-line="148" selection-start-column="28" selection-end-line="148" selection-end-column="28" />
+              <folding>
+                <element signature="e#3341#3853#0" expanded="true" />
+                <element signature="e#3842#3843#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1228,7 +1231,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2365" max-vertical-offset="3604">
           <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#3341#3853#0" expanded="true" />
+            <element signature="e#3842#3843#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1272,9 +1278,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/orbotix/sample/buttondrive/ButtonDriveActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2504473" vertical-offset="1906" max-vertical-offset="3944">
-          <caret line="84" column="5" selection-start-line="84" selection-start-column="5" selection-end-line="84" selection-end-column="5" />
-          <folding />
+        <state vertical-scroll-proportion="3.493739" vertical-offset="325" max-vertical-offset="3468">
+          <caret line="148" column="28" selection-start-line="148" selection-start-column="28" selection-end-line="148" selection-end-column="28" />
+          <folding>
+            <element signature="e#3341#3853#0" expanded="true" />
+            <element signature="e#3842#3843#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
