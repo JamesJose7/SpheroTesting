@@ -1,86 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="#ff888888">
+                android:background="#aaa">
 
-    <Button
-            android:id="@+id/stop_button"
-            style="@style/ControlButton"
-            android:layout_centerInParent="true"
-            android:onClick="onStopClick"
-            android:text="STOP"/>
-
-    <Button
-            android:id="@+id/zero_button"
-            style="@style/ControlButton"
-            android:layout_above="@id/stop_button"
-            android:layout_alignLeft="@id/stop_button"
-            android:onClick="onControlClick"
-            android:text="0˚"/>
-
-    <Button
-            android:id="@+id/ninety_button"
-            style="@style/ControlButton"
-            android:layout_alignTop="@id/stop_button"
-            android:layout_toRightOf="@id/stop_button"
-            android:onClick="onControlClick"
-            android:text="90˚"/>
-
-    <Button
-            android:id="@+id/one_eighty_button"
-            style="@style/ControlButton"
-            android:layout_alignLeft="@id/stop_button"
-            android:layout_below="@id/stop_button"
-            android:onClick="onControlClick"
-            android:text="180˚"/>
-
-    <Button
-            android:id="@+id/two_seventy_button"
-            style="@style/ControlButton"
-            android:layout_alignTop="@id/stop_button"
-            android:layout_toLeftOf="@id/stop_button"
-            android:onClick="onControlClick"
-            android:text="270˚"/>
-
-    <orbotix.view.connection.SpheroConnectionView
+    <!--<orbotix.view.connection.SpheroConnectionView
             android:id="@+id/sphero_connection_view"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="#D0000000"/>
+            android:background="#D0000000"
+        tools:alpha="00"/>-->
 
-    <Button
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        tools:alpha="00"
+        android:id="@+id/dPad">
 
-        android:id="@+id/button"
-        style="@style/ControlButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/ninety_button"
-        android:onClick="onControlClick"
-        android:text="Square"/>
+        <Button
+                android:id="@+id/stop_button"
+                style="@style/ControlButton"
+                android:layout_centerInParent="true"
+                android:onClick="onStopClick"
+                android:text="STOP"/>
 
-    <Button
+        <Button
+                android:id="@+id/zero_button"
+                style="@style/ControlButton"
+                android:layout_above="@id/stop_button"
+                android:layout_alignLeft="@id/stop_button"
+                android:onClick="onControlClick"
+                android:text="0˚"/>
 
-        android:id="@+id/circle_button"
-        style="@style/ControlButton"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/two_seventy_button"
-        android:onClick="onControlClick"
-        android:text="Circle"/>
+        <Button
+                android:id="@+id/ninety_button"
+                style="@style/ControlButton"
+                android:layout_alignTop="@id/stop_button"
+                android:layout_toRightOf="@id/stop_button"
+                android:onClick="onControlClick"
+                android:text="90˚"/>
 
-    <Button
-        android:id="@+id/pathing"
-        style="@style/ControlButton"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/button"
-        android:onClick="onControlClick"
-        android:text="Path" />
+        <Button
+                android:id="@+id/one_eighty_button"
+                style="@style/ControlButton"
+                android:layout_alignLeft="@id/stop_button"
+                android:layout_below="@id/stop_button"
+                android:onClick="onControlClick"
+                android:text="180˚"/>
 
-    <Button
-        android:id="@+id/triangle"
-        style="@style/ControlButton"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:onClick="onControlClick"
-        android:text="Triangle" />
+        <Button
+                android:id="@+id/two_seventy_button"
+                style="@style/ControlButton"
+                android:layout_alignTop="@id/stop_button"
+                android:layout_toLeftOf="@id/stop_button"
+                android:onClick="onControlClick"
+                android:text="270˚"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/mainLayout">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/patterns"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/speedLayout">
+
+            <Button
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                android:id="@+id/squareButton"
+                android:layout_centerInParent="true"
+                android:background="#cc000000"
+                android:textColor="#fff"
+                android:onClick="onControlClick"
+                android:text="Square"/>
+
+            <Button
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                android:id="@+id/circleButton"
+                android:layout_toRightOf="@id/squareButton"
+                android:layout_alignTop="@id/squareButton"
+                android:background="#cc000000"
+                android:textColor="#fff"
+                android:onClick="onControlClick"
+                android:text="Circle"
+                android:layout_marginLeft="5dp"/>
+
+            <Button
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                android:id="@+id/pathing"
+                android:layout_toLeftOf="@id/squareButton"
+                android:layout_alignTop="@id/squareButton"
+                android:background="#cc000000"
+                android:textColor="#fff"
+                android:onClick="onControlClick"
+                android:text="Path"
+                android:layout_marginRight="5dp"/>
+
+            <Button
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                android:id="@+id/triangle"
+                android:layout_below="@id/squareButton"
+                android:layout_alignLeft="@id/squareButton"
+                android:background="#cc000000"
+                android:textColor="#fff"
+                android:onClick="onControlClick"
+                android:text="Triangle"
+                android:layout_marginTop="5dp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:id="@+id/speedLayout">
+
+                <Button
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/speed100"
+                    android:layout_weight="10"
+                    android:text="100%"
+                    android:background="#40000000"
+                    android:textColor="#fff"
+                    android:onClick="onSpeedClick"/>
+
+                <Button
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/speed90"
+                    android:layout_weight="10"
+                    android:text="90%"
+                    android:background="#40000000"
+                    android:textColor="#fff"
+                    android:onClick="onSpeedClick"/>
+
+                <Button
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/speed80"
+                    android:layout_weight="10"
+                    android:text="80%"
+                    android:background="#40000000"
+                    android:textColor="#fff"
+                    android:onClick="onSpeedClick"/>
+
+                <Button
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/speed70"
+                    android:layout_weight="10"
+                    android:text="70%"
+                    android:background="#40000000"
+                    android:textColor="#fff"
+                    android:onClick="onSpeedClick"/>
+
+                <Button
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/speed60"
+                    android:layout_weight="10"
+                    android:text="60%"
+                    android:background="#40000000"
+                    android:textColor="#fff"
+                    android:onClick="onSpeedClick"/>
+
+                <Button
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/speed50"
+                    android:layout_weight="10"
+                    android:text="50%"
+                    android:background="#40000000"
+                    android:textColor="#fff"
+                    android:onClick="onSpeedClick"/>
+
+                <Button
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/speed40"
+                    android:layout_weight="10"
+                    android:text="40%"
+                    android:background="#40000000"
+                    android:textColor="#fff"
+                    android:onClick="onSpeedClick"/>
+
+                <Button
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/speed30"
+                    android:layout_weight="10"
+                    android:text="30%"
+                    android:background="#40000000"
+                    android:textColor="#fff"
+                    android:onClick="onSpeedClick"/>
+
+                <Button
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/speed20"
+                    android:layout_weight="10"
+                    android:text="20%"
+                    android:background="#40000000"
+                    android:textColor="#fff"
+                    android:onClick="onSpeedClick"/>
+
+                <Button
+                    android:layout_width="55dp"
+                    android:layout_height="0dp"
+                    android:id="@+id/speed10"
+                    android:layout_weight="10"
+                    android:text="10%"
+                    android:background="#40000000"
+                    android:textColor="#fff"
+                    android:onClick="onSpeedClick"/>
+
+
+            </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -16,9 +16,9 @@ import orbotix.view.connection.SpheroConnectionView;
 /** Activity for controlling the Sphero with five control buttons. */
 public class ButtonDriveActivity extends Activity {
 
-    public boolean isRolling;
-
     private Sphero mRobot;
+
+    private float mSpeed = 0;
 
     /** The Sphero Connection View */
     private SpheroConnectionView mSpheroConnectionView;
@@ -84,7 +84,54 @@ public class ButtonDriveActivity extends Activity {
         }
     }
 
-    float counter = 0f;
+    public void pathTriangle() throws InterruptedException {
+        float[] angles = {0f, 120f, 240f};
+
+        for (int i = 0; i < angles.length; i++) {
+            mRobot.drive(angles[i], 1f);
+            mRobot.stop();
+            Thread.sleep(2000);
+        }
+    }
+
+    private void pathTest() throws InterruptedException {
+        mRobot.drive(0f, 1f);
+        Thread.sleep(2000);
+        mRobot.stop();
+    }
+
+    private void pathCircle() throws InterruptedException {
+
+        for (float i = 0f; i <= 360f; i += 10) {
+            mRobot.drive(i, 1f);
+            mRobot.setColor((int) i, (int) i, (int) i);
+            Thread.sleep(50);
+        }
+        for (float i = 0f; i <= 360f; i += 10) {
+            mRobot.drive(i, 1f);
+            mRobot.setColor((int) i, (int) i, (int) i);
+            Thread.sleep(50);
+        }
+
+        mRobot.stop();
+        mRobot.stop();
+        mRobot.stop();
+    }
+
+
+    public void pathSquare() throws InterruptedException {
+
+        float[] angles = {0f, 90f, 180f, 270f};
+        Random randomGenerator = new Random();
+        int randomNumber = randomGenerator.nextInt(255);
+
+        for (int i = 0; i < angles.length; i++) {
+            mRobot.setColor(randomNumber, randomNumber, randomNumber);
+            mRobot.drive(angles[i], 1f);
+            mRobot.stop();
+            Thread.sleep(1000);
+        }
+    }
 
     /**
      * When the user clicks a control button, roll the Robot in that direction
@@ -145,73 +192,48 @@ public class ButtonDriveActivity extends Activity {
                 break;
 
             default:
-               // heading = 0f;
-               // mRobot.setColor(240, 15, 219);
+                // heading = 0f;
+                // mRobot.setColor(240, 15, 219);
                 break;
         }
-
-        // Set speed. 60% of full speed
-        final float speed = 0.6f;
-
-        // Roll robot
-        //mRobot.drive(heading, speed);
     }
 
-    public void pathTriangle() throws InterruptedException {
-        float[] angles = {0f, 120f, 240f};
-
-        for (int i = 0; i < angles.length; i++) {
-            mRobot.drive(angles[i], 1f);
-            mRobot.stop();
-            Thread.sleep(2000);
+    public void onSpeedClick(View view) {
+        switch (view.getId()) {
+            case R.id.speed100:
+                mSpeed = 100f;
+                break;
+            case R.id.speed90:
+                mSpeed = 90f;
+                break;
+            case R.id.speed80:
+                mSpeed = 80f;
+                break;
+            case R.id.speed70:
+                mSpeed = 70f;
+                break;
+            case R.id.speed60:
+                mSpeed = 60f;
+                break;
+            case R.id.speed50:
+                mSpeed = 50f;
+                break;
+            case R.id.speed40:
+                mSpeed = 40f;
+                break;
+            case R.id.speed30:
+                mSpeed = 30f;
+                break;
+            case R.id.speed20:
+                mSpeed = 20f;
+                break;
+            case R.id.speed10:
+                mSpeed = 10f;
+                break;
+            default:
+                mSpeed = 0;
+                break;
         }
     }
 
-    private void pathTest() throws InterruptedException {
-        mRobot.drive(0f, 1f);
-        Thread.sleep(2000);
-        mRobot.stop();
-    }
-
-    private void pathCircle() throws InterruptedException {
-
-        for (float i = 0f; i <= 360f; i += 10) {
-            mRobot.drive(i, 1f);
-            mRobot.setColor((int) i, (int) i, (int) i);
-            Thread.sleep(50);
-        }
-        for (float i = 0f; i <= 360f; i += 10) {
-            mRobot.drive(i, 1f);
-            mRobot.setColor((int) i, (int) i, (int) i);
-            Thread.sleep(50);
-        }
-
-        mRobot.stop();
-        mRobot.stop();
-        mRobot.stop();
-    }
-
-
-    public void pathSquare() throws InterruptedException {
-
-        float[] angles = {0f, 90f, 180f, 270f};
-        Random randomGenerator = new Random();
-        int randomNumber = randomGenerator.nextInt(255);
-
-        for (int i = 0; i < angles.length; i++) {
-            mRobot.setColor(randomNumber, randomNumber, randomNumber);
-            mRobot.drive(angles[i], 1f);
-            mRobot.stop();
-            Thread.sleep(1000);
-        }
-
-        /*Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                pathSquare(counter);
-                counter =+ 90f;
-            }
-        }, 3000);*/
-
-    }
 }
