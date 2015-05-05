@@ -95,6 +95,7 @@ public class ButtonDriveActivity extends Activity {
             @Override
             public void run() {
                 for (float angle : angles) {
+                    changeSpheroColor();
                     mRobot.drive(angle, mSpeed);
                     mRobot.stop();
                     try {
@@ -112,6 +113,7 @@ public class ButtonDriveActivity extends Activity {
         mHandler.post(new Runnable() {
             @Override
             public void run() {
+                changeSpheroColor();
                 mRobot.drive(0f, mSpeed);
                 try {
                     Thread.sleep(2000);
@@ -130,8 +132,8 @@ public class ButtonDriveActivity extends Activity {
             @Override
             public void run() {
                 for (float i = 0f; i <= 360f; i += 10) {
+                    changeSpheroColor();
                     mRobot.drive(i, 1f);
-                    mRobot.setColor((int) i, (int) i, (int) i);
                     try {
                         Thread.sleep(50);
                     } catch (InterruptedException e) {
@@ -151,11 +153,9 @@ public class ButtonDriveActivity extends Activity {
             @Override
             public void run() {
                 float[] angles = {0f, 90f, 180f, 270f};
-                Random randomGenerator = new Random();
-                int randomNumber = randomGenerator.nextInt(255);
 
                 for (float angle : angles) {
-                    mRobot.setColor(randomNumber, randomNumber, randomNumber);
+                    changeSpheroColor();
                     mRobot.drive(angle, mSpeed);
                     mRobot.stop();
                     try {
@@ -167,6 +167,12 @@ public class ButtonDriveActivity extends Activity {
             }
         });
 
+    }
+
+    public void changeSpheroColor() {
+        Random randomGenerator = new Random();
+
+        mRobot.setColor(randomGenerator.nextInt(255), randomGenerator.nextInt(255), randomGenerator.nextInt(255));
     }
 
     /**
@@ -193,6 +199,27 @@ public class ButtonDriveActivity extends Activity {
 
             case R.id.triangle:
                 pathTriangle();
+                break;
+
+            //D-Pad
+            case R.id.stop_button:
+                mRobot.stop();
+                break;
+
+            case R.id.upButton:
+                mRobot.drive(0f, mSpeed);
+                break;
+
+            case R.id.rightButton:
+                mRobot.drive(90f, mSpeed);
+                break;
+
+            case R.id.downButton:
+                mRobot.drive(180f, mSpeed);
+                break;
+
+            case R.id.leftButton:
+                mRobot.drive(270f, mSpeed);
                 break;
 
             default:
