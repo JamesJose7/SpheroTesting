@@ -87,42 +87,73 @@ public class ButtonDriveActivity extends Activity {
         }
     }
 
-    public void pathTriangle() throws InterruptedException {
-        float[] angles = {0f, 120f, 240f};
+    public void pathTriangle() {
 
-        for (float angle : angles) {
-            mRobot.drive(angle, mSpeed);
-            mRobot.stop();
-            Thread.sleep(2000);
-        }
+        mHandler.post(new Runnable() {
+            float[] angles = {0f, 120f, 240f};
+
+            @Override
+            public void run() {
+                for (float angle : angles) {
+                    mRobot.drive(angle, mSpeed);
+                    mRobot.stop();
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
     }
 
-    private void pathTest() throws InterruptedException {
-        mRobot.drive(0f, mSpeed);
-        Thread.sleep(2000);
-        mRobot.stop();
+    private void pathTest() {
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                mRobot.drive(0f, mSpeed);
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                mRobot.stop();
+            }
+        });
+
     }
 
-    private void pathCircle() throws InterruptedException {
-
-        for (float i = 0f; i <= 360f; i += 10) {
-            mRobot.drive(i, 1f);
-            mRobot.setColor((int) i, (int) i, (int) i);
-            Thread.sleep(50);
-        }
-        mRobot.stop();
-    }
-
-
-    public void pathSquare() throws InterruptedException {
-
-        final float[] angles = {0f, 90f, 180f, 270f};
-        Random randomGenerator = new Random();
-        final int randomNumber = randomGenerator.nextInt(255);
+    private void pathCircle() {
 
         mHandler.post(new Runnable() {
             @Override
             public void run() {
+                for (float i = 0f; i <= 360f; i += 10) {
+                    mRobot.drive(i, 1f);
+                    mRobot.setColor((int) i, (int) i, (int) i);
+                    try {
+                        Thread.sleep(50);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+                mRobot.stop();
+            }
+        });
+
+    }
+
+
+    public void pathSquare() {
+
+        mHandler.post(new Runnable() {
+            @Override
+            public void run() {
+                float[] angles = {0f, 90f, 180f, 270f};
+                Random randomGenerator = new Random();
+                int randomNumber = randomGenerator.nextInt(255);
+
                 for (float angle : angles) {
                     mRobot.setColor(randomNumber, randomNumber, randomNumber);
                     mRobot.drive(angle, mSpeed);
