@@ -5,71 +5,10 @@
                 android:layout_height="fill_parent"
                 android:background="#aaa">
 
-    <!--<orbotix.view.connection.SpheroConnectionView
-            android:id="@+id/sphero_connection_view"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="#D0000000"
-        tools:alpha="00"/>-->
-
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/mainLayout">
-
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/patterns"
-            android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@id/speedLayout">
-
-            <Button
-                android:layout_height="80dp"
-                android:layout_width="80dp"
-                android:id="@+id/squareButton"
-                android:layout_centerInParent="true"
-                android:background="#cc000000"
-                android:textColor="#fff"
-                android:onClick="onControlClick"
-                android:text="Square"/>
-
-            <Button
-                android:layout_height="80dp"
-                android:layout_width="80dp"
-                android:id="@+id/circleButton"
-                android:layout_toRightOf="@id/squareButton"
-                android:layout_alignTop="@id/squareButton"
-                android:background="#cc000000"
-                android:textColor="#fff"
-                android:onClick="onControlClick"
-                android:text="Circle"
-                android:layout_marginLeft="5dp"/>
-
-            <Button
-                android:layout_height="80dp"
-                android:layout_width="80dp"
-                android:id="@+id/pathing"
-                android:layout_toLeftOf="@id/squareButton"
-                android:layout_alignTop="@id/squareButton"
-                android:background="#cc000000"
-                android:textColor="#fff"
-                android:onClick="onControlClick"
-                android:text="Path"
-                android:layout_marginRight="5dp"/>
-
-            <Button
-                android:layout_height="80dp"
-                android:layout_width="80dp"
-                android:id="@+id/triangle"
-                android:layout_below="@id/squareButton"
-                android:layout_alignLeft="@id/squareButton"
-                android:background="#cc000000"
-                android:textColor="#fff"
-                android:onClick="onControlClick"
-                android:text="Triangle"
-                android:layout_marginTop="5dp"/>
-        </RelativeLayout>
 
         <LinearLayout
             android:orientation="vertical"
@@ -184,17 +123,25 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="#cc000000"
+            android:background="#ccffffff"
             android:id="@+id/dPad"
             android:layout_toLeftOf="@id/speedLayout">
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_centerHorizontal="true"
+                android:background="#cc000000"
+                android:id="@+id/changeDPad" />
 
             <Button
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:id="@+id/stop_button"
                 android:layout_centerInParent="true"
+                android:background="@drawable/stop_button"
                 android:onClick="onStopClick"
-                android:text="STOP"/>
+                tools:text="STOP"/>
 
             <Button
                 android:layout_height="80dp"
@@ -236,6 +183,80 @@
                 android:onClick="onControlClick"
                 tools:text="270˚"/>
         </RelativeLayout>
+
+        <View
+            android:layout_width="55dp"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:id="@+id/speedLayoutClone"/>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/patterns"
+            android:layout_toLeftOf="@id/speedLayoutClone">
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="35dp"
+                android:layout_centerHorizontal="true"
+                android:background="#ccffffff"
+                android:id="@+id/changePatterns" />
+
+            <Button
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                android:id="@+id/squareButton"
+                android:layout_centerInParent="true"
+                android:background="#cc000000"
+                android:textColor="#fff"
+                android:onClick="onControlClick"
+                android:text="Square"/>
+
+            <Button
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                android:id="@+id/circleButton"
+                android:layout_toRightOf="@id/squareButton"
+                android:layout_alignTop="@id/squareButton"
+                android:background="#cc000000"
+                android:textColor="#fff"
+                android:onClick="onControlClick"
+                android:text="Circle"
+                android:layout_marginLeft="5dp"/>
+
+            <Button
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                android:id="@+id/pathing"
+                android:layout_toLeftOf="@id/squareButton"
+                android:layout_alignTop="@id/squareButton"
+                android:background="#cc000000"
+                android:textColor="#fff"
+                android:onClick="onControlClick"
+                android:text="Path"
+                android:layout_marginRight="5dp"/>
+
+            <Button
+                android:layout_height="80dp"
+                android:layout_width="80dp"
+                android:id="@+id/triangle"
+                android:layout_below="@id/squareButton"
+                android:layout_alignLeft="@id/squareButton"
+                android:background="#cc000000"
+                android:textColor="#fff"
+                android:onClick="onControlClick"
+                android:text="Triangle"
+                android:layout_marginTop="5dp"/>
+        </RelativeLayout>
+
+
     </RelativeLayout>
+
+    <orbotix.view.connection.SpheroConnectionView
+            android:id="@+id/sphero_connection_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#fff"/>
 
 </RelativeLayout>

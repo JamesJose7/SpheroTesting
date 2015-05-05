@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import java.util.Random;
 
@@ -31,6 +32,30 @@ public class ButtonDriveActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        final RelativeLayout dPad = (RelativeLayout) findViewById(R.id.dPad);
+        final RelativeLayout patternsLayout = (RelativeLayout) findViewById(R.id.patterns);
+
+        dPad.setVisibility(View.INVISIBLE);
+
+        Button changeDpad = (Button) findViewById(R.id.changeDPad);
+        Button changePatterns = (Button) findViewById(R.id.changePatterns);
+
+        changeDpad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dPad.setVisibility(View.INVISIBLE);
+                patternsLayout.setVisibility(View.VISIBLE);
+            }
+        });
+
+        changePatterns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                patternsLayout.setVisibility(View.INVISIBLE);
+                dPad.setVisibility(View.VISIBLE);
+            }
+        });
 
 
 
