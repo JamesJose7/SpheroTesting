@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -20,9 +21,8 @@ public class ButtonDriveActivity extends Activity {
 
     private Sphero mRobot;
 
-    private Handler mHandler = new Handler();
 
-    private float mSpeed = 0;
+    private float mSpeed;
 
     /** The Sphero Connection View */
     private SpheroConnectionView mSpheroConnectionView;
@@ -32,6 +32,8 @@ public class ButtonDriveActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+
+        mSpeed = 0;
 
         final RelativeLayout dPad = (RelativeLayout) findViewById(R.id.dPad);
         final RelativeLayout patternsLayout = (RelativeLayout) findViewById(R.id.patterns);
@@ -114,84 +116,63 @@ public class ButtonDriveActivity extends Activity {
 
     public void pathTriangle() {
 
-        mHandler.post(new Runnable() {
-            float[] angles = {0f, 120f, 240f};
+        float[] angles = {0f, 120f, 240f};
 
-            @Override
-            public void run() {
-                for (float angle : angles) {
-                    changeSpheroColor();
-                    mRobot.drive(angle, mSpeed);
-                    mRobot.stop();
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
+        for (float angle : angles) {
+            changeSpheroColor();
+            mRobot.drive(angle, mSpeed);
+            mRobot.stop();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        });
+        }
+
 
     }
 
     private void pathTest() {
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                changeSpheroColor();
-                mRobot.drive(0f, mSpeed);
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                mRobot.stop();
-            }
-        });
+        changeSpheroColor();
+        mRobot.drive(0f, mSpeed);
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        mRobot.stop();
 
     }
 
     private void pathCircle() {
 
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                for (float i = 0f; i <= 360f; i += 10) {
-                    changeSpheroColor();
-                    mRobot.drive(i, 1f);
-                    try {
-                        Thread.sleep(50);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-                mRobot.stop();
+        for (float i = 0f; i <= 360f; i += 10) {
+            changeSpheroColor();
+            mRobot.drive(i, 1f);
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        });
-
+        }
+        mRobot.stop();
     }
 
 
     public void pathSquare() {
 
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                float[] angles = {0f, 90f, 180f, 270f};
+       float[] angles = {0f, 90f, 180f, 270f};
 
-                for (float angle : angles) {
-                    changeSpheroColor();
-                    mRobot.drive(angle, mSpeed);
-                    mRobot.stop();
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
-
+       for (float angle : angles) {
+           changeSpheroColor();
+           mRobot.drive(angle, mSpeed);
+           mRobot.stop();
+           try {
+               Thread.sleep(1000);
+           } catch (InterruptedException e) {
+               e.printStackTrace();
+           }
+       }
     }
 
     public void changeSpheroColor() {
@@ -255,39 +236,51 @@ public class ButtonDriveActivity extends Activity {
     }
 
     public void onSpeedClick(View view) {
+        int velocityPercentage = (int) (mSpeed * 100f);
         switch (view.getId()) {
             case R.id.speed100:
-                mSpeed = 100f;
+                mSpeed = 1f;
+                Toast.makeText(this, "velocity set to " + velocityPercentage + "%", Toast.LENGTH_LONG).show();
                 break;
             case R.id.speed90:
-                mSpeed = 90f;
+                mSpeed = 0.9f;
+                Toast.makeText(this, "velocity set to " + velocityPercentage + "%", Toast.LENGTH_LONG).show();
                 break;
             case R.id.speed80:
-                mSpeed = 80f;
+                mSpeed = 0.8f;
+                Toast.makeText(this, "velocity set to " + velocityPercentage + "%", Toast.LENGTH_LONG).show();
                 break;
             case R.id.speed70:
-                mSpeed = 70f;
+                mSpeed = 0.7f;
+                Toast.makeText(this, "velocity set to " + velocityPercentage + "%", Toast.LENGTH_LONG).show();
                 break;
             case R.id.speed60:
-                mSpeed = 60f;
+                mSpeed = 0.6f;
+                Toast.makeText(this, "velocity set to " + velocityPercentage + "%", Toast.LENGTH_LONG).show();
                 break;
             case R.id.speed50:
-                mSpeed = 50f;
+                mSpeed = 0.5f;
+                Toast.makeText(this, "velocity set to " + velocityPercentage + "%", Toast.LENGTH_LONG).show();
                 break;
             case R.id.speed40:
-                mSpeed = 40f;
+                mSpeed = 0.4f;
+                Toast.makeText(this, "velocity set to " + velocityPercentage + "%", Toast.LENGTH_LONG).show();
                 break;
             case R.id.speed30:
-                mSpeed = 30f;
+                mSpeed = 0.3f;
+                Toast.makeText(this, "velocity set to " + velocityPercentage + "%", Toast.LENGTH_LONG).show();
                 break;
             case R.id.speed20:
-                mSpeed = 20f;
+                mSpeed = 0.2f;
+                Toast.makeText(this, "velocity set to " + velocityPercentage + "%", Toast.LENGTH_LONG).show();
                 break;
             case R.id.speed10:
-                mSpeed = 10f;
+                mSpeed = 0.1f;
+                Toast.makeText(this, "velocity set to " + velocityPercentage + "%", Toast.LENGTH_LONG).show();
                 break;
             default:
-                mSpeed = 0;
+                mSpeed = 0f;
+                Toast.makeText(this, "velocity set to " + velocityPercentage + "%", Toast.LENGTH_LONG).show();
                 break;
         }
     }
