@@ -175,6 +175,22 @@ public class ButtonDriveActivity extends Activity {
        }
     }
 
+    public void pathHexagon() {
+
+        float[] angles = {30f, 60f, 90f, 120f, 150f, 180f};
+
+        for (float angle : angles) {
+            changeSpheroColor();
+            mRobot.drive(angle, mSpeed);
+            mRobot.stop();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void changeSpheroColor() {
         Random randomGenerator = new Random();
 
@@ -205,6 +221,10 @@ public class ButtonDriveActivity extends Activity {
 
             case R.id.triangle:
                 pathTriangle();
+                break;
+
+            case R.id.hexagon:
+                pathHexagon();
                 break;
 
             //D-Pad

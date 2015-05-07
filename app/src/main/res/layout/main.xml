@@ -132,6 +132,8 @@
                 android:layout_height="35dp"
                 android:layout_centerHorizontal="true"
                 android:background="#cc000000"
+                android:text="Patterns"
+                android:textColor="#ccffffff"
                 android:id="@+id/changeDPad" />
 
             <Button
@@ -196,6 +198,8 @@
                 android:layout_height="35dp"
                 android:layout_centerHorizontal="true"
                 android:background="#cc000000"
+                android:text="D-Pad"
+                android:textColor="#ccffffff"
                 android:id="@+id/changePatterns" />
 
             <Button
@@ -203,7 +207,7 @@
                 android:layout_width="80dp"
                 android:id="@+id/squareButton"
                 android:layout_centerInParent="true"
-                android:background="#cc000000"
+                android:background="#000"
                 android:textColor="#fff"
                 android:onClick="onControlClick"
                 android:text="Square"/>
@@ -214,7 +218,7 @@
                 android:id="@+id/circleButton"
                 android:layout_toRightOf="@id/squareButton"
                 android:layout_alignTop="@id/squareButton"
-                android:background="#cc000000"
+                android:background="#000"
                 android:textColor="#fff"
                 android:onClick="onControlClick"
                 android:text="Circle"
@@ -226,7 +230,7 @@
                 android:id="@+id/pathing"
                 android:layout_toLeftOf="@id/squareButton"
                 android:layout_alignTop="@id/squareButton"
-                android:background="#cc000000"
+                android:background="#000"
                 android:textColor="#fff"
                 android:onClick="onControlClick"
                 android:text="Path"
@@ -238,11 +242,23 @@
                 android:id="@+id/triangle"
                 android:layout_below="@id/squareButton"
                 android:layout_alignLeft="@id/squareButton"
-                android:background="#cc000000"
+                android:background="#000"
                 android:textColor="#fff"
                 android:onClick="onControlClick"
                 android:text="Triangle"
                 android:layout_marginTop="5dp"/>
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:id="@+id/hexagon"
+                android:layout_above="@id/squareButton"
+                android:layout_alignLeft="@id/squareButton"
+                android:background="#000"
+                android:textColor="#fff"
+                android:onClick="onControlClick"
+                android:text="Hexagon"
+                android:layout_marginBottom="5dp"/>
         </RelativeLayout>
 
 
