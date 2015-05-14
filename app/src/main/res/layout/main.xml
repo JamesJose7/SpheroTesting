@@ -25,7 +25,10 @@
                     android:text="100%"
                     android:background="#40000000"
                     android:textColor="#fff"
-                    android:onClick="onSpeedClick"/>
+                    android:onClick="onSpeedClick"
+                    />
+
+
 
                 <Button
                     android:layout_width="55dp"
@@ -119,6 +122,103 @@
 
 
             </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:background="#00000000">
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:background="#44000000"
+                android:id="@+id/marker100"
+                />
+
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:background="#44000000"
+                android:id="@+id/marker90"
+                />
+
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:background="#44000000"
+                android:id="@+id/marker80"
+                />
+
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:background="#44000000"
+                android:id="@+id/marker70"
+                />
+
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:background="#44000000"
+                android:id="@+id/marker60"
+                />
+
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:background="#44000000"
+                android:id="@+id/marker50"
+                />
+
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:background="#44000000"
+                android:id="@+id/marker40"
+                />
+
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:background="#44000000"
+                android:id="@+id/marker30"
+                />
+
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:background="#44000000"
+                android:id="@+id/marker20"
+                />
+
+
+            <View
+                android:layout_width="55dp"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:background="#44000000"
+                android:id="@+id/marker10"
+                />
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="fill_parent"
@@ -264,10 +364,10 @@
 
     </RelativeLayout>
 
-    <orbotix.view.connection.SpheroConnectionView
+    <!--<orbotix.view.connection.SpheroConnectionView
             android:id="@+id/sphero_connection_view"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:background="#fff"/>
+            android:background="#fff"/>-->
 
 </RelativeLayout>

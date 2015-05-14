@@ -24,6 +24,9 @@ public class ButtonDriveActivity extends Activity {
 
     private float mSpeed;
 
+    //Velocity markers
+    private View[] mMarkers;
+
     /** The Sphero Connection View */
     private SpheroConnectionView mSpheroConnectionView;
 
@@ -34,6 +37,22 @@ public class ButtonDriveActivity extends Activity {
         setContentView(R.layout.main);
 
         mSpeed = 0;
+
+        //Set marker Views
+        mMarkers = new View[]{
+                findViewById(R.id.marker100),
+                findViewById(R.id.marker90),
+                findViewById(R.id.marker80),
+                findViewById(R.id.marker70),
+                findViewById(R.id.marker60),
+                findViewById(R.id.marker50),
+                findViewById(R.id.marker40),
+                findViewById(R.id.marker30),
+                findViewById(R.id.marker20),
+                findViewById(R.id.marker10)
+        };
+
+
 
         final RelativeLayout dPad = (RelativeLayout) findViewById(R.id.dPad);
         final RelativeLayout patternsLayout = (RelativeLayout) findViewById(R.id.patterns);
@@ -177,7 +196,7 @@ public class ButtonDriveActivity extends Activity {
 
     public void pathHexagon() {
 
-        float[] angles = {30f, 60f, 90f, 120f, 150f, 180f};
+        float[] angles = {0f, 30f, 60f, 90f, 120f, 150f};
 
         for (float angle : angles) {
             changeSpheroColor();
@@ -302,6 +321,53 @@ public class ButtonDriveActivity extends Activity {
                 mSpeed = 0f;
                 Toast.makeText(this, "velocity set to " + velocityPercentage + "%", Toast.LENGTH_LONG).show();
                 break;
+        }
+    }
+
+    public void setMarkersVisibility(int visibility, int marker) {
+        switch (marker) {
+            case 100:
+                toggleMarkerVisibility(mMarkers[marker]);
+                marker--;
+            case 90:
+                toggleMarkerVisibility(mMarkers[marker]);
+                marker--;
+            case 80:
+                toggleMarkerVisibility(mMarkers[marker]);
+                marker--;
+            case 70:
+                toggleMarkerVisibility(mMarkers[marker]);
+                marker--;
+            case 60:
+                toggleMarkerVisibility(mMarkers[marker]);
+                marker--;
+            case 50:
+                toggleMarkerVisibility(mMarkers[marker]);
+                marker--;
+            case 40:
+                toggleMarkerVisibility(mMarkers[marker]);
+                marker--;
+            case 30:
+                toggleMarkerVisibility(mMarkers[marker]);
+                marker--;
+            case 20:
+                toggleMarkerVisibility(mMarkers[marker]);
+                marker--;
+            case 10:
+                toggleMarkerVisibility(mMarkers[marker]);
+                break;
+            default:
+                break;
+
+        }
+
+    }
+
+    public void toggleMarkerVisibility(View view) {
+        if (view.getVisibility() == View.INVISIBLE) {
+            view.setVisibility(View.VISIBLE);
+        } else {
+            view.setVisibility(View.INVISIBLE);
         }
     }
 
